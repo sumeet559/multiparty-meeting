@@ -78,7 +78,8 @@ const styles = (theme) =>
 		},
 		actionButton :
 		{
-			color: "blue",
+			backgroundColor: "black",
+			color: "black",
 			margin  : theme.spacing(1, 0),
 			padding : theme.spacing(0, 1)
 		}
