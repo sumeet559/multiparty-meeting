@@ -174,7 +174,7 @@ const ChooseRoom = ({
 }) =>
 {
 	const [ roomId, setRoomId ] =
-		useState(randomString({ length: 8 }).toLowerCase());
+		useState(randomString({ length: 15 }).toLowerCase());
 
 	const intl = useIntl();
 
