@@ -289,14 +289,14 @@ export default class RoomClient {
   startRecording() {
 		store.dispatch(roomActions.setRoomRecording());
 		var mediaConstraints = {
-		    audio: true
+		    audio: true,
+				video: true
 		};
 
 		navigator.getUserMedia(mediaConstraints, function(stream) {
 		    mediaRecorder = new MediaStreamRecorder(stream);
-		    mediaRecorder.mimeType = 'audio/webm';
+		    mediaRecorder.mimeType = 'video/webm';
 		    mediaRecorder.ondataavailable = function (blob) {};
-		    mediaRecorder.start();
 		}, function(e) {
 		    console.error('media error', e);
 		});
