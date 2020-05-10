@@ -51,7 +51,7 @@ const styles = (theme) =>
 		},
 		show :
 		{
-			opacity    : 1,
+			opacity    : 0.5,
 			transition : 'opacity .5s'
 		},
 		hide :
@@ -223,7 +223,7 @@ const TopBar = (props) =>
 							</IconButton>
 						</Tooltip>
 					}
-					<Tooltip 
+					<Tooltip
 						title={intl.formatMessage({
 							id             : 'tooltip.participants',
 							defaultMessage : 'Show participants'
@@ -291,7 +291,7 @@ const TopBar = (props) =>
 						</IconButton>
 					</Tooltip>
 					{ lobbyPeers.length > 0 &&
-						<Tooltip 
+						<Tooltip
 							title={intl.formatMessage({
 								id             : 'tooltip.lobby',
 								defaultMessage : 'Show lobby'
@@ -323,7 +323,7 @@ const TopBar = (props) =>
 								})}
 								className={classes.actionButton}
 								color='inherit'
-								onClick={() => 
+								onClick={() =>
 								{
 									loggedIn ? roomClient.logout() : roomClient.login();
 								}}
