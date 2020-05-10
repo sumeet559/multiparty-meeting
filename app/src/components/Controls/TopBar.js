@@ -206,6 +206,21 @@ const TopBar = (props) =>
 				>
 					{ window.config && window.config.title ? window.config.title : 'Multiparty meeting' }
 				</Typography>
+				<Button
+					aria-label={intl.formatMessage({
+						id             : 'label.leave',
+						defaultMessage : 'StartRecording'
+					})}
+					className={classes.actionButton}
+					variant='contained'
+					onClick={() => roomClient.close()}
+					color='secondary'
+				>
+					<FormattedMessage
+						id='label.leave'
+						defaultMessage='START RECORDING'
+					/>
+				</Button>
 				<div className={classes.grow} />
 				<div className={classes.actionButtons}>
 					{ fullscreenEnabled &&
