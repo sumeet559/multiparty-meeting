@@ -41,6 +41,7 @@ const styles = (theme) =>
 		},
 		dialogPaper :
 		{
+			opacity: 0.5,
 			width                          : '30vw',
 			padding                        : theme.spacing(2),
 			[theme.breakpoints.down('lg')] :
