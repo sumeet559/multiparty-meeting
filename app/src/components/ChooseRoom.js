@@ -220,7 +220,7 @@ const ChooseRoom = ({
 						onBlur={() =>
 						{
 							if (roomId === '')
-								setRoomId(randomString({ length: 8 }).toLowerCase());
+								setRoomId(randomString({ length: 15 }).toLowerCase());
 						}}
 						fullWidth
 					/>

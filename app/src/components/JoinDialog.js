@@ -28,6 +28,8 @@ const styles = (theme) =>
 			width                : '100%',
 			height               : '100%',
 			backgroundColor      : 'var(--background-color)',
+			box-shadow: 'inset 0 0 2000px rgba(255, 255, 255, .5)',
+    	filter: 'blur(10px)',
 			backgroundImage      : `url(${window.config ? window.config.background : null})`,
 			backgroundAttachment : 'fixed',
 			backgroundPosition   : 'center',
@@ -207,7 +209,7 @@ const JoinDialog = ({
 			>
 				<DialogTitle
 					myPicture={myPicture}
-					onLogin={() => 
+					onLogin={() =>
 					{
 						loggedIn ? roomClient.logout() : roomClient.login();
 					}}
@@ -237,7 +239,7 @@ const JoinDialog = ({
 						<FormattedMessage
 							id='room.setYourName'
 							defaultMessage={
-								`Set your name for participation, 
+								`Set your name for participation,
 								and choose how you want to join:`
 							}
 						/>
@@ -301,7 +303,7 @@ const JoinDialog = ({
 							/>
 						</Button>
 					</DialogActions>
-					: 
+					:
 					<DialogContent>
 						<DialogContentText
 							className={classes.green}
@@ -319,7 +321,7 @@ const JoinDialog = ({
 								<FormattedMessage
 									id='room.emptyRequireLogin'
 									defaultMessage={
-										`The room is empty! You can Log In to start 
+										`The room is empty! You can Log In to start
 										the meeting or wait until the host joins`
 									}
 								/>
