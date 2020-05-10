@@ -49,6 +49,10 @@ const styles = (theme) =>
 		{
 			marginLeft : theme.spacing(3),
 		},
+		dividersm :
+		{
+			marginLeft : theme.spacing(1),
+		},
 		show :
 		{
 			opacity    : 0.5,
@@ -78,8 +82,6 @@ const styles = (theme) =>
 		},
 		actionButton :
 		{
-			backgroundColor: "black",
-			color: "black",
 			margin  : theme.spacing(1, 0),
 			padding : theme.spacing(0, 1)
 		}
@@ -225,6 +227,7 @@ const TopBar = (props) =>
 							</IconButton>
 						</Tooltip>
 					}
+					<div className={classes.dividersm} />
 					<Tooltip
 						title={intl.formatMessage({
 							id             : 'tooltip.participants',
@@ -265,6 +268,7 @@ const TopBar = (props) =>
 							<SettingsIcon />
 						</IconButton>
 					</Tooltip>
+					<div className={classes.dividersm} />
 					<Tooltip title={lockTooltip}>
 						<IconButton
 							aria-label={intl.formatMessage({
@@ -292,6 +296,7 @@ const TopBar = (props) =>
 							}
 						</IconButton>
 					</Tooltip>
+					<div className={classes.dividersm} />
 					{ lobbyPeers.length > 0 &&
 						<Tooltip
 							title={intl.formatMessage({
@@ -316,6 +321,7 @@ const TopBar = (props) =>
 							</IconButton>
 						</Tooltip>
 					}
+					<div className={classes.dividersm} />
 					{ loginEnabled &&
 						<Tooltip title={loginTooltip}>
 							<IconButton
