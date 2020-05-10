@@ -43,7 +43,7 @@
 	},
 	"scripts": {
 		"analyze": "source-map-explorer build/static/js/*",
-		"start": "HTTPS=true PORT=4443 react-scripts start",
+		"start": "PORT=4443 react-scripts start",
 		"build": "react-scripts build && mkdir -p ../server/public && rm -rf ../server/public/* && cp -r build/* ../server/public/",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
