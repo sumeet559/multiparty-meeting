@@ -17,7 +17,7 @@ import * as producerActions from './actions/producerActions';
 import * as notificationActions from './actions/notificationActions';
 import randomString from 'random-string';
 import MediaStreamRecorder from 'msr';
-import ConcatenateBlobs as concatenateBlobs from 'concatenateblobs';
+import * as concatenateBlobs from 'concatenateblobs';
 
 let createTorrent;
 
