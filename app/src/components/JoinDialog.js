@@ -38,8 +38,6 @@ const styles = (theme) =>
 		},
 		dialogTitle :
 		{
-			boxShadow            : 'inset 0 0 2000px rgba(255, 255, 255, .5)',
-    	filter        			 : 'blur(10px)'
 		},
 		dialogPaper :
 		{

@@ -28,7 +28,7 @@ const styles = (theme) =>
 			display              : 'flex',
 			width                : '100%',
 			height               : '100%',
-			backgroundColor      : 'var(--background-color)',
+			backgroundColor      : 'rgba(0, 153, 0, 1)',//'var(--background-color)',
 			backgroundImage      : `url(${window.config ? window.config.background : null})`,
 			backgroundAttachment : 'fixed',
 			backgroundPosition   : 'center',
