@@ -33,7 +33,7 @@ const styles = (theme) =>
 			display              : 'flex',
 			width                : '100%',
 			height               : '100%',
-			backgroundColor      : 'var(--background-color)',
+			backgroundColor      : 'transparent',
 			backgroundImage      : `url(${window.config ? window.config.background : null})`,
 			backgroundAttachment : 'fixed',
 			backgroundPosition   : 'center',
@@ -158,13 +158,13 @@ class Room extends React.PureComponent
 						buttonText={
 							<FormattedMessage
 								id = 'room.consentUnderstand'
-								defaultMessage = 'I understand'
+								defaultMessage = 'I AGREE'
 							/>
 						}
 					>
 						<FormattedMessage
 							id = 'room.cookieConsent'
-							defaultMessage='This website uses cookies to enhance the user experience'
+							defaultMessage='This website uses cookies to enhance the user experience.'
 						/>
 					</CookieConsent>
 				}
