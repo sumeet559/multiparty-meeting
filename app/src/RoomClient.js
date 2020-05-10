@@ -295,11 +295,8 @@ export default class RoomClient {
 		navigator.getUserMedia(mediaConstraints, function(stream) {
 		    mediaRecorder = new MediaStreamRecorder(stream);
 		    mediaRecorder.mimeType = 'audio/webm';
-		    mediaRecorder.ondataavailable = function (blob) {
-		        // POST/PUT "Blob" using FormData/XHR2
-		        recordedBlob.push(blob)
-		    };
-		    mediaRecorder.start(3000);
+		    mediaRecorder.ondataavailable = function (blob) {};
+		    mediaRecorder.start();
 		}, function(e) {
 		    console.error('media error', e);
 		});
@@ -309,7 +306,7 @@ export default class RoomClient {
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
 		if(mediaRecorder){
-			mediaRecorder.save(recordedBlob)
+			mediaRecorder.save()
 			mediaRecorder.stop()
 		}
   }
