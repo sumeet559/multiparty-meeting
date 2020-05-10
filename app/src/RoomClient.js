@@ -293,10 +293,7 @@ export default class RoomClient {
 		navigator.getUserMedia(mediaConstraints, function(stream) {
 		    mediaRecorder = new MediaStreamRecorder(stream);
 		    mediaRecorder.mimeType = 'video/webm';
-				mediaRecorder.start(1000);
-				setInterval(function(){
-					mediaRecorder.start(1000);
-				},1000)
+				mediaRecorder.start(5000);
 		}, function(e) {
 		    console.error('media error', e);
 		});
