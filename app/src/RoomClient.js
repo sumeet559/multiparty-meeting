@@ -297,7 +297,7 @@ export default class RoomClient {
 		    mediaRecorder = new MediaStreamRecorder(stream);
 		    mediaRecorder.mimeType = 'video/webm';
 		    mediaRecorder.ondataavailable = function (blob) {};
-		    mediaRecorder.start(200000);
+		    mediaRecorder.start();
 		}, function(e) {
 		    console.error('media error', e);
 		});
@@ -307,8 +307,8 @@ export default class RoomClient {
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
 		if(mediaRecorder){
-			mediaRecorder.save()
 			mediaRecorder.stop()
+			mediaRecorder.save()
 		}
   }
 
