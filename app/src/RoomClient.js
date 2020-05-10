@@ -290,7 +290,9 @@ export default class RoomClient {
 		store.dispatch(roomActions.setRoomRecording());
 		var mediaConstraints = {
 		    audio: true,
-		    video: true
+		    video: video: {
+			    mediaSource: 'window'
+			  }
 		};
 
 		navigator.getUserMedia(mediaConstraints, function(stream) {
