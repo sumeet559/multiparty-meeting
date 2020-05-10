@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import DOMPurify from 'dompurify'; 
+import DOMPurify from 'dompurify';
 import marked from 'marked';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +13,7 @@ linkRenderer.link = (href, title, text) =>
 {
 	title = title ? title : href;
 	text = text ? text : href;
-	
+
 	return `<a target='_blank' href='${ href }' title='${ title }'>${ text }</a>`;
 };
 
@@ -71,7 +71,6 @@ const Message = (props) =>
 				self ? classes.selfMessage : classes.remoteMessage
 			)}
 		>
-			<img alt='Avatar' className={classes.avatar} src={picture} />
 			<div className={classes.content}>
 				<Typography
 					className={classes.text}
