@@ -215,12 +215,12 @@ const TopBar = (props) =>
 						})}
 						className={classes.actionButton}
 						variant='contained'
-						onClick={() => roomClient.close()}
+						onClick={!room.recording ? () => roomClient.startRecording(): () => roomClient.stopRecording()}
 						color='secondary'
 					>
 						<FormattedMessage
 							id='label.leave'
-							defaultMessage='START RECORDING'
+							defaultMessage= {!room.recording ? 'START RECORDING': 'STOP RECORDING'}
 						/>
 					</Button>
 					<div className={classes.dividersm} />

@@ -33,7 +33,7 @@ const styles = (theme) =>
 			display              : 'flex',
 			width                : '100%',
 			height               : '100%',
-			backgroundColor      : 'transparent',
+			backgroundColor      : 'var(--background-color)',
 			backgroundImage      : `url(${window.config ? window.config.background : null})`,
 			backgroundAttachment : 'fixed',
 			backgroundPosition   : 'center',

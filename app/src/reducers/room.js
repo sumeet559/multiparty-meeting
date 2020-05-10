@@ -52,6 +52,16 @@ const room = (state = initialState, action) =>
 			return { ...state, locked: false };
 		}
 
+		case 'SET_ROOM_RECORDING':
+		{
+			return { ...state, recording: true };
+		}
+
+		case 'SET_ROOM_STOP_RECORDING':
+		{
+			return { ...state, recording: false };
+		}
+
 		case 'SET_IN_LOBBY':
 		{
 			const { inLobby } = action.payload;
@@ -86,7 +96,7 @@ const room = (state = initialState, action) =>
 
 			return { ...state, lockDialogOpen };
 		}
-	
+
 		case 'SET_SETTINGS_OPEN':
 		{
 			const { settingsOpen } = action.payload;

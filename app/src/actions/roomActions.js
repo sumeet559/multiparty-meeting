@@ -28,6 +28,16 @@ export const setRoomUnLocked = () =>
 		type : 'SET_ROOM_UNLOCKED'
 	});
 
+export const setRoomRecording = () =>
+		({
+			type : 'SET_ROOM_RECORDING'
+		});
+
+export const setRoomStopRecording = () =>
+		({
+			type : 'SET_ROOM_STOP_RECORDING'
+		});
+
 export const setInLobby = (inLobby) =>
 	({
 		type    : 'SET_IN_LOBBY',
