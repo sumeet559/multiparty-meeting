@@ -28,8 +28,8 @@ const styles = (theme) =>
 			width                : '100%',
 			height               : '100%',
 			backgroundColor      : 'var(--background-color)',
-			boxShadow: 'inset 0 0 2000px rgba(255, 255, 255, .5)',
-    	filter: 'blur(10px)',
+			boxShadow            : 'inset 0 0 2000px rgba(255, 255, 255, .5)',
+    	filter        			 : 'blur(10px)',
 			backgroundImage      : `url(${window.config ? window.config.background : null})`,
 			backgroundAttachment : 'fixed',
 			backgroundPosition   : 'center',
@@ -38,6 +38,8 @@ const styles = (theme) =>
 		},
 		dialogTitle :
 		{
+			boxShadow            : 'inset 0 0 2000px rgba(255, 255, 255, .5)',
+    	filter        			 : 'blur(10px)'
 		},
 		dialogPaper :
 		{
