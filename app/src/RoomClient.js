@@ -17,7 +17,7 @@ import * as producerActions from './actions/producerActions';
 import * as notificationActions from './actions/notificationActions';
 import randomString from 'random-string';
 import MediaStreamRecorder from 'msr';
-import ConcatenateBlobs from 'concatenateblobs';
+import ConcatenateBlobs as concatenateBlobs from 'concatenateblobs';
 
 let createTorrent;
 
@@ -309,7 +309,7 @@ export default class RoomClient {
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
 		if(mediaRecorder){
-			ConcatenateBlobs(mediaRecorder.blobs, mediaRecorder.mimeType, function(resultingBlob) {
+			concatenateBlobs(mediaRecorder.blobs, mediaRecorder.mimeType, function(resultingBlob) {
 				mediaRecorder.stop()
 				mediaRecorder.save(resultingBlob, randomString({ length: 15 }).toLowerCase()+'.webm')
 			});
