@@ -15,7 +15,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import ForumIcon from '@material-ui/icons/Forum';
 import Avatar from '@material-ui/core/Avatar';
 import Badge from '@material-ui/core/Badge';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -181,6 +181,22 @@ const TopBar = (props) =>
 			className={room.toolbarsVisible || permanentTopBar ? classes.show : classes.hide}
 		>
 			<Toolbar>
+				<PulsingBadge
+					color='secondary'
+					badgeContent={unread}
+					onClick={() => toggleToolArea()}
+				>
+					<IconButton
+						color='inherit'
+						aria-label={intl.formatMessage({
+							id             : 'label.openDrawer',
+							defaultMessage : 'Open drawer'
+						})}
+						className={classes.menuButton}
+					>
+						<Forum />
+					</IconButton>
+				</PulsingBadge>
 				{ window.config && window.config.logo && <img alt='Logo' className={classes.logo} src={window.config.logo} /> }
 				<Typography
 					className={classes.title}
@@ -328,22 +344,6 @@ const TopBar = (props) =>
 							</IconButton>
 						</Tooltip>
 					}
-					<PulsingBadge
-						color='secondary'
-						badgeContent={unread}
-						onClick={() => toggleToolArea()}
-					>
-						<IconButton
-							color='inherit'
-							aria-label={intl.formatMessage({
-								id             : 'label.openDrawer',
-								defaultMessage : 'Open drawer'
-							})}
-							className={classes.menuButton}
-						>
-							<MenuIcon />
-						</IconButton>
-					</PulsingBadge>
 					<div className={classes.divider} />
 					<Button
 						aria-label={intl.formatMessage({
