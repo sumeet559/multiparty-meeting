@@ -28,7 +28,9 @@ const styles = (theme) =>
 			display              : 'flex',
 			width                : '100%',
 			height               : '100%',
-			backgroundColor      : 'rgba(0, 153, 0, 1)',//'var(--background-color)',
+			backgroundColor      : 'var(--background-color)',
+			boxShadow            : 'inset 0 0 2000px rgba(255, 255, 255, .5)',
+    	filter        			 : 'blur(10px)',
 			backgroundImage      : `url(${window.config ? window.config.background : null})`,
 			backgroundAttachment : 'fixed',
 			backgroundPosition   : 'center',
@@ -40,8 +42,6 @@ const styles = (theme) =>
 		},
 		dialogPaper :
 		{
-			boxShadow            : 'inset 0 0 2000px rgba(255, 255, 255, .5)',
-    	filter        			 : 'blur(10px)',
 			width                          : '30vw',
 			padding                        : theme.spacing(2),
 			[theme.breakpoints.down('lg')] :
