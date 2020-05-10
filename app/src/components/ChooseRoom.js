@@ -186,7 +186,7 @@ const ChooseRoom = ({
 			>
 				<DialogTitle
 					myPicture={myPicture}
-					onLogin={() => 
+					onLogin={() =>
 					{
 						loggedIn ? roomClient.logout() : roomClient.login();
 					}}
@@ -198,7 +198,7 @@ const ChooseRoom = ({
 					<DialogContentText gutterBottom>
 						<FormattedMessage
 							id='room.chooseRoom'
-							defaultMessage='Choose the name of the room you would like to join'
+							defaultMessage='Choose the room you would like to join'
 						/>
 					</DialogContentText>
 
