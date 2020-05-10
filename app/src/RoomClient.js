@@ -15,8 +15,9 @@ import * as lobbyPeerActions from './actions/lobbyPeerActions';
 import * as consumerActions from './actions/consumerActions';
 import * as producerActions from './actions/producerActions';
 import * as notificationActions from './actions/notificationActions';
+import randomString from 'random-string';
 import MediaStreamRecorder from 'msr';
-
+import ConcatenateBlobs from 'concatenateblobs';
 
 let createTorrent;
 
@@ -124,8 +125,6 @@ let store;
 let intl;
 
 let mediaRecorder = null
-
-let recordedBlob = []
 
 export default class RoomClient {
   /**
@@ -310,8 +309,10 @@ export default class RoomClient {
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
 		if(mediaRecorder){
-			mediaRecorder.stop()
-			mediaRecorder.save()
+			ConcatenateBlobs(mediaRecorder.blobs, mediaRecorder.mimeType, function(resultingBlob) {
+				mediaRecorder.stop()
+				mediaRecorder.save(resultingBlob, randomString({ length: 15 }).toLowerCase()+'.webm')
+			});
 		}
   }
 
