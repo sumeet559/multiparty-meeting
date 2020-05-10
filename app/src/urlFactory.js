@@ -8,7 +8,7 @@ export function getSignalingUrl(peerId, roomId)
 			:
 			window.config.productionPort;
 
-	const url = `ws://${hostname}:${port}/?peerId=${peerId}&roomId=${roomId}`;
+	const url = `wss://${hostname}:${port}/?peerId=${peerId}&roomId=${roomId}`;
 
 	return url;
 }
