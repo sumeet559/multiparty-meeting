@@ -18,7 +18,6 @@ import IconButton from '@material-ui/core/IconButton';
 const tabs =
 [
 	'chat',
-	'files',
 	'users'
 ];
 
@@ -30,6 +29,8 @@ const styles = (theme) =>
 			flexDirection   : 'column',
 			width           : '100%',
 			height          : '100%',
+			boxShadow       : 'inset 0 0 1000px rgba(255, 255, 255, .5)',
+    	filter        	: 'blur(5px)',
 			backgroundColor : theme.palette.background.paper
 		},
 		appBar :
@@ -83,16 +84,6 @@ const MeetingDrawer = (props) =>
 						}
 					/>
 					<Tab
-						label={
-							<Badge color='secondary' badgeContent={unreadFiles}>
-								{intl.formatMessage({
-									id             : 'label.filesharing',
-									defaultMessage : 'File sharing'
-								})}
-							</Badge>
-						}
-					/>
-					<Tab
 						label={intl.formatMessage({
 							id             : 'label.participants',
 							defaultMessage : 'Participants'
@@ -104,7 +95,6 @@ const MeetingDrawer = (props) =>
 				</IconButton>
 			</AppBar>
 			{currentToolTab === 'chat' && <Chat />}
-			{currentToolTab === 'files' && <FileSharing />}
 			{currentToolTab === 'users' && <ParticipantList />}
 		</div>
 	);
