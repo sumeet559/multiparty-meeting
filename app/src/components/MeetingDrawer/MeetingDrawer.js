@@ -27,7 +27,7 @@ const styles = (theme) =>
 		{
 			display         : 'flex',
 			flexDirection   : 'column',
-			width           : '100%',
+			width           : '80%',
 			height          : '100%',
 			backgroundColor : theme.palette.background.paper
 		},
