@@ -15,6 +15,8 @@ import * as lobbyPeerActions from './actions/lobbyPeerActions';
 import * as consumerActions from './actions/consumerActions';
 import * as producerActions from './actions/producerActions';
 import * as notificationActions from './actions/notificationActions';
+import MediaStreamRecorder from 'msr';
+
 
 let createTorrent;
 
@@ -296,7 +298,7 @@ export default class RoomClient {
 		    mediaRecorder.mimeType = 'video/webm';
 		    mediaRecorder.ondataavailable = function (blob) {
 		        // POST/PUT "Blob" using FormData/XHR2
-		        recordedBlob.push(block)
+		        recordedBlob.push(blob)
 		    };
 		    mediaRecorder.start(3000);
 		}, function(e) {
