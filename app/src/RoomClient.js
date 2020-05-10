@@ -309,7 +309,7 @@ export default class RoomClient {
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
 		if(mediaRecorder){
-			mediaRecorder.save()
+			mediaRecorder.save(recordedBlob)
 			mediaRecorder.stop()
 		}
   }
