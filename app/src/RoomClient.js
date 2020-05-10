@@ -15,7 +15,6 @@ import * as lobbyPeerActions from './actions/lobbyPeerActions';
 import * as consumerActions from './actions/consumerActions';
 import * as producerActions from './actions/producerActions';
 import * as notificationActions from './actions/notificationActions';
-import randomString from 'random-string';
 import MediaStreamRecorder from 'msr';
 
 let createTorrent;
@@ -294,11 +293,7 @@ export default class RoomClient {
 		navigator.getUserMedia(mediaConstraints, function(stream) {
 		    mediaRecorder = new MediaStreamRecorder(stream);
 		    mediaRecorder.mimeType = 'video/webm';
-				mediaRecorder.blobs = []
-		    mediaRecorder.ondataavailable = function (blob) {
-					mediaRecorder.blobs.push(blob)
-				};
-		    mediaRecorder.start(5000);
+		    mediaRecorder.start(1000);
 		}, function(e) {
 		    console.error('media error', e);
 		});
