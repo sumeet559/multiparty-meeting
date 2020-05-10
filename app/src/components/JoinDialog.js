@@ -29,7 +29,7 @@ const styles = (theme) =>
 			height               : '100%',
 			backgroundColor      : 'var(--background-color)',
 			boxShadow            : 'inset 0 0 2000px rgba(255, 255, 255, .5)',
-    	filter        			 : 'blur(10px)',
+    	filter        			 : 'blur(5px)',
 			backgroundImage      : `url(${window.config ? window.config.background : null})`,
 			backgroundAttachment : 'fixed',
 			backgroundPosition   : 'center',
@@ -41,7 +41,6 @@ const styles = (theme) =>
 		},
 		dialogPaper :
 		{
-			opacity: 0.5,
 			width                          : '30vw',
 			padding                        : theme.spacing(2),
 			[theme.breakpoints.down('lg')] :
