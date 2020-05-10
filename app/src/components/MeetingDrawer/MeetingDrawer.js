@@ -26,7 +26,7 @@ const styles = (theme) =>
 		root :
 		{
 			display         : 'flex',
-			flexDirection   : 'column',
+			flexDirection   : 'root',
 			width           : '100%',
 			height          : '100%',
 			backgroundColor : theme.palette.background.paper
