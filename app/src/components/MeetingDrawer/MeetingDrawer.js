@@ -29,8 +29,6 @@ const styles = (theme) =>
 			flexDirection   : 'column',
 			width           : '100%',
 			height          : '100%',
-			boxShadow       : 'inset 0 0 1000px rgba(255, 255, 255, .5)',
-    	filter        	: 'blur(5px)',
 			backgroundColor : theme.palette.background.paper
 		},
 		appBar :
