@@ -87,7 +87,7 @@ const Message = (props) =>
 						}
 					) }}
 				/>
-				<Typography variant='caption'>{self ? 'Me' : name} - {time}</Typography>
+				<Typography variant='caption'>{self ? 'Me' : name} {time}</Typography>
 			</div>
 		</Paper>
 	);
