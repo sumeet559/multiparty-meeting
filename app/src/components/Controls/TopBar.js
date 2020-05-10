@@ -78,6 +78,7 @@ const styles = (theme) =>
 		},
 		actionButton :
 		{
+			color: "blue",
 			margin  : theme.spacing(1, 0),
 			padding : theme.spacing(0, 1)
 		}
@@ -344,7 +345,6 @@ const TopBar = (props) =>
 						})}
 						className={classes.actionButton}
 						variant='contained'
-						color='secondary'
 						onClick={() => roomClient.close()}
 					>
 						<FormattedMessage
