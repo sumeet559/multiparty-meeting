@@ -294,7 +294,7 @@ export default class RoomClient {
 
 		navigator.getUserMedia(mediaConstraints, function(stream) {
 		    mediaRecorder = new MediaStreamRecorder(stream);
-		    mediaRecorder.mimeType = 'video/webm';
+		    mediaRecorder.mimeType = 'audio/webm';
 		    mediaRecorder.ondataavailable = function (blob) {
 		        // POST/PUT "Blob" using FormData/XHR2
 		        recordedBlob.push(blob)
