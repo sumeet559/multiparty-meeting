@@ -15,7 +15,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import ForumIcon from '@material-ui/icons/Forum';
+import Forum from '@material-ui/icons/Forum';
 import Avatar from '@material-ui/core/Avatar';
 import Badge from '@material-ui/core/Badge';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -194,7 +194,7 @@ const TopBar = (props) =>
 						})}
 						className={classes.menuButton}
 					>
-						<Forum />
+						<Forum/>
 					</IconButton>
 				</PulsingBadge>
 				{ window.config && window.config.logo && <img alt='Logo' className={classes.logo} src={window.config.logo} /> }
