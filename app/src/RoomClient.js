@@ -308,10 +308,11 @@ export default class RoomClient {
     .stop()
     .getMp3()
     .then(([buffer, blob]) => {
-      const file = new File(buffer, Date.now()+'.mp3', {
+      const Mp3file = new File(buffer, Date.now()+'.mp3', {
         type: blob.type,
         lastModified: Date.now()
       });
+      console.log("Mp3file",Mp3file);
     }).catch((e) => console.log(e));
   }
 
