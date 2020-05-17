@@ -308,8 +308,7 @@ export default class RoomClient {
     .stop()
     .getMp3()
     .then(([buffer, blob]) => {
-      const blobURL = URL.createObjectURL(blob)
-      console.log("blobURL",blobURL);
+      save(blob)
     }).catch((e) => console.log(e));
   }
 
