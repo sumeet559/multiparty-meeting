@@ -15,7 +15,7 @@ import * as lobbyPeerActions from './actions/lobbyPeerActions';
 import * as consumerActions from './actions/consumerActions';
 import * as producerActions from './actions/producerActions';
 import * as notificationActions from './actions/notificationActions';
-import * as recordRtc from './RecordRTC'
+import MicRecorder from 'mic-recorder-to-mp3';
 
 let createTorrent;
 
@@ -122,7 +122,7 @@ let store;
 
 let intl;
 
-let mediaRecorder = null
+let Mp3Recorder = null
 
 export default class RoomClient {
   /**
@@ -286,23 +286,31 @@ export default class RoomClient {
   startRecording() {
 		store.dispatch(roomActions.setRoomRecording());
 
-    navigator.mediaDevices.getUserMedia({
-        video: false,
-        audio: true
-    }).then(async function(stream) {
-        mediaRecorder = recordRtc.RecordRTC(stream, {
-            type: 'audio'
-        });
-        mediaRecorder.startRecording();
-    })
+    Mp3Recorder = new MicRecorder({ bitRate: 128 });
+    navigator.getUserMedia({ audio: true },
+      () => {
+        console.log('Permission Granted');
+      },
+      () => {
+        console.log('Permission Denied');
+      },
+    );
+    Mp3Recorder
+      .start()
+      .then(() => {
+        console.log('Recording Started');
+      }).catch((e) => console.error(e));
   }
 
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
-    mediaRecorder.stopRecording(function() {
-        let blob = mediaRecorder.getBlob();
-        recordRtc.invokeSaveAsDialog(blob);
-    });
+    Mp3Recorder
+    .stop()
+    .getMp3()
+    .then(([buffer, blob]) => {
+      const blobURL = URL.createObjectURL(blob)
+      console.log("blobURL",blobURL);
+    }).catch((e) => console.log(e));
   }
 
   _startKeyListener() {
