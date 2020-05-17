@@ -122,7 +122,7 @@ let store;
 
 let intl;
 
-let recorder = null
+let mediaRecorder = null
 
 export default class RoomClient {
   /**
@@ -286,18 +286,23 @@ export default class RoomClient {
   startRecording() {
 		store.dispatch(roomActions.setRoomRecording());
 
-    let stream = await navigator.mediaDevices.getUserMedia({video: false, audio: true});
-    let recorder = new recordRtc.RecordRTCPromisesHandler(stream, {
-        type: 'audio'
-    });
-    recorder.startRecording();
+    navigator.mediaDevices.getUserMedia({
+        video: false,
+        audio: true
+    }).then(async function(stream) {
+        mediaRecorder = recordrtc.RecordRTC(stream, {
+            type: 'audio'
+        });
+        mediaRecorder.startRecording();
+    })
   }
 
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
-    await recorder.stopRecording();
-    let blob = await recorder.getBlob();
-    invokeSaveAsDialog(blob);
+    mediaRecorder.stopRecording(function() {
+        let blob = mediaRecorder.getBlob();
+        invokeSaveAsDialog(blob);
+    });
   }
 
   _startKeyListener() {
