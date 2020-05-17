@@ -15,7 +15,7 @@ import * as lobbyPeerActions from './actions/lobbyPeerActions';
 import * as consumerActions from './actions/consumerActions';
 import * as producerActions from './actions/producerActions';
 import * as notificationActions from './actions/notificationActions';
-import * as recordRtc from 'recordrtc'
+import * as recordRtc from 'RecordRTC'
 
 let createTorrent;
 
