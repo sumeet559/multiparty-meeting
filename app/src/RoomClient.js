@@ -290,7 +290,7 @@ export default class RoomClient {
         video: false,
         audio: true
     }).then(async function(stream) {
-        mediaRecorder = recordrtc.RecordRTC(stream, {
+        mediaRecorder = recordRtc.RecordRTC(stream, {
             type: 'audio'
         });
         mediaRecorder.startRecording();
@@ -301,7 +301,7 @@ export default class RoomClient {
 		store.dispatch(roomActions.setRoomStopRecording());
     mediaRecorder.stopRecording(function() {
         let blob = mediaRecorder.getBlob();
-        invokeSaveAsDialog(blob);
+        recordRtc.invokeSaveAsDialog(blob);
     });
   }
 
