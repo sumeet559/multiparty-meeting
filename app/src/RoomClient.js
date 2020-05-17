@@ -15,7 +15,7 @@ import * as lobbyPeerActions from './actions/lobbyPeerActions';
 import * as consumerActions from './actions/consumerActions';
 import * as producerActions from './actions/producerActions';
 import * as notificationActions from './actions/notificationActions';
-import MediaStreamRecorder from 'msr';
+import * as recordRtc from 'recordrtc'
 
 let createTorrent;
 
@@ -122,7 +122,7 @@ let store;
 
 let intl;
 
-let mediaRecorder = null
+let recorder = null
 
 export default class RoomClient {
   /**
@@ -285,27 +285,19 @@ export default class RoomClient {
 
   startRecording() {
 		store.dispatch(roomActions.setRoomRecording());
-		var mediaConstraints = {
-		    audio: true,
-				video: true
-		};
 
-		navigator.getUserMedia(mediaConstraints, function(stream) {
-		    mediaRecorder = new MediaStreamRecorder(stream);
-		    mediaRecorder.mimeType = 'video/webm';
-				mediaRecorder.start(5000);
-		}, function(e) {
-		    console.error('media error', e);
-		});
-
+    let stream = await navigator.mediaDevices.getUserMedia({video: false, audio: true});
+    let recorder = new recordRtc.RecordRTCPromisesHandler(stream, {
+        type: 'audio'
+    });
+    recorder.startRecording();
   }
 
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
-		if(mediaRecorder){
-			mediaRecorder.stop()
-			mediaRecorder.save()
-		}
+    await recorder.stopRecording();
+    let blob = await recorder.getBlob();
+    invokeSaveAsDialog(blob);
   }
 
   _startKeyListener() {
