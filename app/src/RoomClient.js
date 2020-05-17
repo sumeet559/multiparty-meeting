@@ -302,17 +302,29 @@ export default class RoomClient {
       }).catch((e) => console.error(e));
   }
 
+    SaveBlobAs(blob, file_name) {
+      if (typeof navigator.msSaveBlob == "function")
+          return navigator.msSaveBlob(blob, file_name);
+
+      var saver = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+      var blobURL = saver.href = URL.createObjectURL(blob),
+          body = document.body;
+
+      saver.download = file_name;
+
+      body.appendChild(saver);
+      saver.dispatchEvent(new MouseEvent("click"));
+      body.removeChild(saver);
+      URL.revokeObjectURL(blobURL);
+  }
+
 	stopRecording() {
 		store.dispatch(roomActions.setRoomStopRecording());
     Mp3Recorder
     .stop()
     .getMp3()
     .then(([buffer, blob]) => {
-      const Mp3file = new File(buffer, Date.now()+'.mp3', {
-        type: blob.type,
-        lastModified: Date.now()
-      });
-      console.log("Mp3file",Mp3file);
+      this.SaveBlobAs(blob, Date.now()+'.mp3');
     }).catch((e) => console.log(e));
   }
 
